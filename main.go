@@ -1,9 +1,13 @@
 package main
 
 import (
+	trade "currency_converter/types"
+	util "currency_converter/utils"
 	"fmt"
 	"os"
 )
+
+const ErrorMessage = "An error occurred: %v\n"
 
 func main() {
 	if len(os.Args) <= 1 {
@@ -27,28 +31,28 @@ func main() {
 		return
 	}
 
-	base, baseAmount, err := extractInputs(os.Args[1])
+	base, baseAmount, err := util.ExtractInputs(os.Args[1])
 
 	if err != nil {
 		fmt.Printf(ErrorMessage, err)
 		return
 	}
 
-	quote, quoteAmount, err := extractInputs(os.Args[2])
+	quote, quoteAmount, err := util.ExtractInputs(os.Args[2])
 
 	if err != nil {
 		fmt.Printf(ErrorMessage, err)
 		return
 	}
 
-	_, marketPrice, err := extractInputs(os.Args[3])
+	_, marketPrice, err := util.ExtractInputs(os.Args[3])
 
 	if err != nil {
 		fmt.Printf(ErrorMessage, err)
 		return
 	}
 
-	tradeQuote := NewTradeQuote(base, quote, baseAmount, quoteAmount, marketPrice)
+	tradeQuote := trade.NewTradeQuote(base, quote, baseAmount, quoteAmount, marketPrice)
 
 	result, err := tradeQuote.Execute()
 
