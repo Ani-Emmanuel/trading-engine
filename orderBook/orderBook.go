@@ -3,6 +3,8 @@ package orderbook
 import (
 	"currency_converter/types"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type OrderBook struct {
@@ -12,6 +14,7 @@ type OrderBook struct {
 
 func (ob *OrderBook) AddToOrderBook(userId, code string, side types.Side, qty, price int) error {
 	book := types.Order{
+		ID:        uuid.NewString(),
 		OwnerId:   userId,
 		Qty:       qty,
 		Code:      code,
