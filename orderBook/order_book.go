@@ -1,8 +1,9 @@
 package orderbook
 
 import (
-	"currency_converter/types"
 	"time"
+
+	"github.com/ani-emmanuel/trading-engine/types"
 
 	"github.com/google/uuid"
 )
