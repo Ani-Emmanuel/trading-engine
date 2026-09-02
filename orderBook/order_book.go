@@ -54,13 +54,7 @@ func (ob *OrderBook) UpdateOrderBookRecord(side types.Side, qty, price, index in
 		return err
 	}
 
-	er := updateOrderBookQuantity(orderBook, qty, price, index)
-
-	if er != nil {
-		return er
-	}
-
-	return nil
+	return updateOrderBookQuantity(orderBook, qty, price, index)
 }
 
 func (ob *OrderBook) GetOrderBookRecord(side types.Side, price, index int) (types.Order, error) {
