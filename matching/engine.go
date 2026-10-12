@@ -134,12 +134,12 @@ func (e *Engine) updateOrderBookAfterMatch(tradeSide types.Side, matchedOrder ty
 func getPriceLevelsInPriorityOrder(order map[int][]types.Order, side types.Side) []int {
 	prices := maps.Keys(order)
 
-	if side == types.Buy {
-		return slices.Sorted(prices)
-	}
-
 	return slices.SortedFunc(prices, func(a, b int) int {
-		return cmp.Compare(b, a)
+		if side == types.Buy {
+			return cmp.Compare(b, a)
+		}
+
+		return cmp.Compare(a, b)
 	})
 }
 
@@ -152,12 +152,9 @@ func canMatch(matchedOrder, incomingOrder types.Order) bool {
 }
 
 func getTradeSide(side types.Side) types.Side {
-	switch side {
-	case types.Buy:
+	if side == types.Buy {
 		return types.Sell
-	case types.Sell:
-		return types.Buy
-	default:
-		return ""
 	}
+
+	return types.Buy
 }
