@@ -1,4 +1,4 @@
-module github.com/ani-emmanuel/trading-engine
+module trading-engine
 
 go 1.26.3
 

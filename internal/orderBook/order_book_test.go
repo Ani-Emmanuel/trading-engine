@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ani-emmanuel/trading-engine/types"
+	"trading-engine/internal/types"
 )
 
 func TestAddToOrderBook(t *testing.T) {

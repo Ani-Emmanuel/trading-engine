@@ -5,10 +5,10 @@ import (
 	"maps"
 	"slices"
 
-	orderBook "github.com/ani-emmanuel/trading-engine/orderBook"
+	orderBook "trading-engine/internal/orderBook"
 
-	"github.com/ani-emmanuel/trading-engine/execution"
-	"github.com/ani-emmanuel/trading-engine/types"
+	"trading-engine/internal/execution"
+	"trading-engine/internal/types"
 )
 
 type Engine struct {

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ani-emmanuel/trading-engine/execution"
-	orderbook "github.com/ani-emmanuel/trading-engine/orderBook"
-	"github.com/ani-emmanuel/trading-engine/types"
+	"trading-engine/internal/execution"
+	orderbook "trading-engine/internal/orderBook"
+	"trading-engine/internal/types"
 )
 
 func TestMatchEngine(t *testing.T) {

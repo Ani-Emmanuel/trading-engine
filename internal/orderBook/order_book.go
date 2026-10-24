@@ -3,7 +3,7 @@ package orderbook
 import (
 	"time"
 
-	"github.com/ani-emmanuel/trading-engine/types"
+	"trading-engine/internal/types"
 
 	"github.com/google/uuid"
 )
