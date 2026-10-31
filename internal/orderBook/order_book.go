@@ -16,7 +16,7 @@ type OrderBook struct {
 func (ob *OrderBook) AddToOrderBook(userId, code string, side types.Side, qty, price int) error {
 	book := types.Order{
 		ID:        uuid.NewString(),
-		OwnerId:   userId,
+		OwnerID:   userId,
 		Qty:       qty,
 		Code:      code,
 		Price:     price,

@@ -26,7 +26,7 @@ func (e *Engine) Match(takerOrder types.Order) ([]execution.Execution, error) {
 
 	if len(orders) == 0 {
 		err := e.OrderBook.AddToOrderBook(
-			takerOrder.OwnerId,
+			takerOrder.OwnerID,
 			takerOrder.Code,
 			takerOrder.Side,
 			takerOrder.Qty,
@@ -59,7 +59,7 @@ func (e *Engine) Match(takerOrder types.Order) ([]execution.Execution, error) {
 
 	if takerOrderQty > 0 {
 		err := e.OrderBook.AddToOrderBook(
-			takerOrder.OwnerId,
+			takerOrder.OwnerID,
 			takerOrder.Code,
 			takerOrder.Side,
 			takerOrderQty,
@@ -102,8 +102,8 @@ func (e *Engine) matchAtPriceLevel(tradeSide types.Side, makerOrders []types.Ord
 		exec := execution.NewExecution(
 			makerOrder.ID,
 			takerOrder.ID,
-			makerOrder.OwnerId,
-			takerOrder.OwnerId,
+			makerOrder.OwnerID,
+			takerOrder.OwnerID,
 			takerOrder.Code,
 			makerOrder.Price,
 			matchedQty,

@@ -224,8 +224,8 @@ func assertOrderCount(t *testing.T, orders []types.Order, expected int) {
 func assertOrder(t *testing.T, order types.Order, ownerID, code string, side types.Side, qty, price int) {
 	t.Helper()
 
-	if order.OwnerId != ownerID {
-		t.Fatalf("expected owner id %s, got %s", ownerID, order.OwnerId)
+	if order.OwnerID != ownerID {
+		t.Fatalf("expected owner id %s, got %s", ownerID, order.OwnerID)
 	}
 
 	if order.Qty != qty {

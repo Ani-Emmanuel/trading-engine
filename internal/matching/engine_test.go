@@ -29,7 +29,7 @@ func testCreatesRestingOrder(t *testing.T) {
 	}
 
 	order := types.Order{
-		OwnerId: "user-1",
+		OwnerID: "user-1",
 		Qty:     2,
 		Price:   1000,
 		Code:    "BTC",
@@ -54,8 +54,8 @@ func testCreatesRestingOrder(t *testing.T) {
 		t.Fatalf("expected 1 order, got %d", len(orders))
 	}
 
-	if orders[0].OwnerId != order.OwnerId {
-		t.Errorf("expected owner ID %q, got %q", order.OwnerId, orders[0].OwnerId)
+	if orders[0].OwnerID != order.OwnerID {
+		t.Errorf("expected owner ID %q, got %q", order.OwnerID, orders[0].OwnerID)
 	}
 
 	if orders[0].Qty != order.Qty {
@@ -80,7 +80,7 @@ func testFullyMatchesMakerAndTaker(t *testing.T) {
 	}
 
 	makerOrder := types.Order{
-		OwnerId: "user-1",
+		OwnerID: "user-1",
 		Qty:     2,
 		Price:   1000,
 		Code:    "BTC",
@@ -88,7 +88,7 @@ func testFullyMatchesMakerAndTaker(t *testing.T) {
 	}
 
 	takerOrder := types.Order{
-		OwnerId: "user-2",
+		OwnerID: "user-2",
 		Qty:     2,
 		Price:   1000,
 		Code:    "BTC",
@@ -134,7 +134,7 @@ func testMatchesMultipleMakers(t *testing.T) {
 	}
 
 	sellOrder := types.Order{
-		OwnerId: "user-1",
+		OwnerID: "user-1",
 		Qty:     3,
 		Price:   1000,
 		Code:    "BTC",
@@ -165,8 +165,8 @@ func testMatchesMultipleMakers(t *testing.T) {
 		t.Fatalf("expected 1 record, got %d", len(data))
 	}
 
-	if data[0].OwnerId != "user-1" {
-		t.Fatalf("expected user-1, got %s", data[0].OwnerId)
+	if data[0].OwnerID != "user-1" {
+		t.Fatalf("expected user-1, got %s", data[0].OwnerID)
 	}
 
 	if data[0].Side != types.Sell {
@@ -192,7 +192,7 @@ func testPartiallyFillsMaker(t *testing.T) {
 	}
 
 	taker := types.Order{
-		OwnerId: "user-1",
+		OwnerID: "user-1",
 		Qty:     2,
 		Price:   1000,
 		Code:    "BTC",
@@ -242,7 +242,7 @@ func testPartiallyFillsTaker(t *testing.T) {
 	}
 
 	taker := types.Order{
-		OwnerId: "user-1",
+		OwnerID: "user-1",
 		Qty:     5,
 		Price:   1000,
 		Code:    "BTC",
@@ -311,7 +311,7 @@ func testPricePriority(t *testing.T) {
 	}
 
 	taker := types.Order{
-		OwnerId: "user-1",
+		OwnerID: "user-1",
 		Qty:     2,
 		Price:   1100,
 		Code:    "BTC",
@@ -364,7 +364,7 @@ func testWhenOrderDoNotMatch(t *testing.T) {
 	}
 
 	_, err := engine.Match(types.Order{
-		OwnerId: "user-1",
+		OwnerID: "user-1",
 		Qty:     5,
 		Price:   1000,
 		Code:    "BTC",
@@ -421,7 +421,7 @@ func testPartialMatchAndRestRemainingQuantity(t *testing.T) {
 	}
 
 	execution, err := engine.Match(types.Order{
-		OwnerId: "user-1",
+		OwnerID: "user-1",
 		Qty:     3,
 		Price:   1000,
 		Code:    "BTC",
@@ -460,7 +460,7 @@ func testOrderDoesNotCrossPrice(t *testing.T) {
 	}
 
 	execution, err := engine.Match(types.Order{
-		OwnerId: "user-2",
+		OwnerID: "user-2",
 		Qty:     3,
 		Price:   1000,
 		Code:    "BTC",
